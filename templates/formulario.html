@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{% block Formulario %}
+
+<div class="container mt-5">
+    <h1>Quiero recibir información</h1>
+    <form>
+        {% csrf_token %}
+        <div class="mb-3">
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        <div id="emailHelp" class="form-text">Ingrese su Email</div>
+        </div>
+        <div class="mb-3">
+            {{ form.nombre.label_tag }}
+            {{ form.nombre }}
+        <div id="emailHelp" class="form-text">Ingrese su Nombre</div>
+        </div>
+        <div class="mb-3">
+            {{ form.apellido.label_tag }}
+            {{ form.apellido }}
+        <div id="emailHelp" class="form-text">Ingrese su Apellido</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Registrarse</button>
+    </form>
+</div>
+
+{% endblock Formulario %}

@@ -19,7 +19,7 @@ from .form import *
 # Create your views here.
 
 def BenignoYoga(request):
-    return render(request, 'index.html')
+    return render(request, 'formulario.html')
 
 
 def registro_estudiantes(request):
@@ -32,7 +32,7 @@ def registro_estudiantes(request):
     else:    
         form = EstudiantesForm()
 
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'formulario.html', {'form': form})
 
 
 def buscar_estudiantes(request):

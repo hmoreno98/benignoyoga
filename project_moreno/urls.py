@@ -16,12 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from mi_app.views import BenignoYoga
+from mi_app.views import BenignoYoga,registro_estudiantes
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("benignoyoga", BenignoYoga),
     path('mi_app', include('mi_app.urls')),
     #path('', inicio),
-    #path('formulario', )
+    path('formulario', registro_estudiantes),
 ]
