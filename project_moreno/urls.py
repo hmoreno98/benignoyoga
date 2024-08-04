@@ -20,8 +20,9 @@ from mi_app.views import BenignoYoga,registro_estudiantes
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("benignoyoga", BenignoYoga),
-    path('mi_app', include('mi_app.urls')),
+    path('',include('mi_app.urls')),
+    #path("benignoyoga", BenignoYoga),
+    #path('mi_app', include('mi_app.urls')),
     #path('', inicio),
-    path('formulario', registro_estudiantes),
+    #path('formulario', registro_estudiantes),
 ]

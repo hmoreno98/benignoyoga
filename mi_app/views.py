@@ -1,17 +1,5 @@
-#from django.shortcuts import render
-#from django.http import HttpResponse
-#from .models import *
 
-#def BenignoYoga(request):
-    #return HttpResponse("Benigno Yoga Scholl.... Loading")
-
-# Create your views here.
-
-#def lista_Estudiantes(request):
-#   estudiates = Estudiantes.objects.all().order_by('nombre')
-#  return render(request,'estudiantes/lista.html')
-
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import *
 from .form import *
@@ -28,8 +16,15 @@ def registro_estudiantes(request):
         if form.is_valid():
             nombre = form.cleaned_data['nombre']
             apellido = form.cleaned_data['apellido']
-            email = form.cleaned_data['email']
-    else:    
+            correo = form.cleaned_data['correo']
+            user_exist = Estudiantes.objects.filter(correo=form.cleaned_data['correo']).exists()
+            if user_exist:
+                return HttpResponse('El estudiante ya esta registrado')
+            else:
+                guardado=Estudiantes.objects.create(nombre=nombre, apellido=apellido,correo=correo)
+                Estudiantes.save(guardado)
+            return redirect('formulario.html')
+    else:   
         form = EstudiantesForm()
 
     return render(request, 'formulario.html', {'form': form})

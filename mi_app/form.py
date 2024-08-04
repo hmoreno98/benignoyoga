@@ -11,16 +11,12 @@ class EstudiantesForm(forms.Form):
         'placeholder': 'Apellido',
         'data-sb-validations': 'required'
     }))
-    email = forms.EmailField(widget=forms.EmailInput(attrs={
+    correo = forms.EmailField(widget=forms.EmailInput(attrs={
         'class': 'form-control form-control-lg',
-        'placeholder': 'Email Address',
-        'data-sb-validations': 'required,email'
+        'placeholder': 'Correo electronico',
+        'data-sb-validations': 'required,correo'
     }))
 
-
+    
 class BuscarForm(forms.Form):
-    query = forms.EmailField(max_length=100, widget=forms.TextInput(attrs={
-        'class': 'form-control form-control-lg',
-        'placeholder': 'Buscar por email',
-        'data-sb-validations': 'required'
-    }))
+    correo = forms.EmailField(label='Email del estudiante', required=True)
