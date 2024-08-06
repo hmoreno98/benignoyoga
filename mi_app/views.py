@@ -31,13 +31,17 @@ def registro_estudiantes(request):
 
 
 def buscar_estudiantes(request):
-    form = BuscarForm()
-    resultados = []
-    
     if request.method == 'POST':
         form = BuscarForm(request.POST)
         if form.is_valid():
-            query = form.cleaned_data['query']
-            resultados = Estudiantes.objects.filter(email__icontains=query)
+            correo= form.cleaned_data['correo']
+#busqueda de cliente por mail
+            estudiantes = Estudiantes.objects.filter(correo=correo).first
+            if estudiantes:
+                return render(request, 'resultado.html', {'estudiantes': estudiantes})
+            else:
+                form.add_error(None, "Estudiantes no encontrado.")
+    else:
+        form=BuscarForm()
     
-    return render(request, 'buscar_estudiantes.html', {'form': form, 'resultados': resultados})
+    return render(request, 'formulario_busqueda.html', {'form': form})

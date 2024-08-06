@@ -25,33 +25,3 @@
 </div>
 
 {% endblock Formulario %}
-<br>
-<br>
-<br>
-{% block Formulario_1 %}  
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<body>
-    <div class="mb-2">
-        <h1>Buscar Estudiante</h1>
-        <form method="POST" >
-            {% csrf_token %}
-            <div class="row">
-                <div class="col">
-                    <label for="correo" class="form-label">{{ form.correo.label_tag }}</label>
-                    {{ form.correo }}
-                    <div class="invalid-feedback text-white" data-sb-feedback="query:required">Este campo es requerido.</div>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary mt-3">Buscar</button>
-        </form>
-    </div>
-</body>
-</div>
-{% endblock Formulario_1 %}

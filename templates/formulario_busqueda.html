@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+
+{% block Formulario %}  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Estudiantes</title>
+</head>
+<body>
+    <h1>Buscar Estudiantes</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div data-mdb-input-init class="form-outline mb-4">
+            {{ form.correo.label_tag }}
+            {{ form.correo }}
+        <button type="submit">Buscar</button>
+    </form>
+</body>
+</html>
+{% endblock Formulario %}
